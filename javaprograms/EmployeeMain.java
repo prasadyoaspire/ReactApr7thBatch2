@@ -3,6 +3,7 @@ class Employee {
    int empId;
    String name;
    double salary;
+   
 
    Employee(int empId, String name,double salary) {   
     this.empId = empId;
@@ -21,8 +22,19 @@ class Employee {
 class EmployeeMain {
 
    public static void main(String[] args) {     
-   Employee emp = new Employee(101,"abc",50000);
-   emp.displayEmp();
+   
+   Employee emp1 = new Employee(101,"abc",50000);
+   emp1.displayEmp();
+
+   Employee emp2 = new Employee(102,"bbb",60000);
+   emp2.displayEmp();
+
+   Employee emp3 = new Employee(103,"ccc",40000);
+   emp3.displayEmp();
+
+
+
+
  }
 
 } 
