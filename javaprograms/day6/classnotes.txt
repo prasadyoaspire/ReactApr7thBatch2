@@ -1,0 +1,377 @@
+abstract keyword:
+
+  where to use?
+
+     1. with methods
+     2. with classes
+
+  
+  abstract methods:
+
+    - only method declaration , no implementation
+
+  abstract classes:
+
+     - if a class contais atleast one abstract method, we need to declare the class as abstract
+
+    abstract class A {
+
+       abstract void m1(); 
+
+     }
+
+ - the subclasses needs to provide implementation to the abstract methods.
+
+     class B extends A {
+
+        void m1() {
+
+        }
+      }
+
+  - we can't create object for abstract classes
+
+         A a1 = new A();  //errror. Why ? A is abstract class
+
+  - An abstract class can have any no. of abstract methods and non abstract method
+
+
+       abstract class A {
+
+          abstract void m1();
+          abstract void m2();
+          void m3() {
+
+          }
+       }
+
+  - The subclasses can provide implemenations for all abstract methods or partially provide implementation.
+    
+     if case of partial implementaion, the subclasses also declare as abstract.
+
+     abstract class B extends A { //partial implementation, still here m2() is an abstract
+
+          void m1() {
+
+          }      
+ 
+      }
+
+     class C extends B {
+
+        void m2() {
+
+        }
+      }
+
+  - we can declare a class as abstract without any abstract methods
+
+         abstract class A {
+
+              void m1() {
+
+              }              
+           }
+
+----------------------------------------------------------------------
+
+   interface:
+
+    - 
+
+    class MyClass {
+
+      //variables
+       int i;
+       String s;
+
+       //methods
+       void m1() {
+
+        }
+     }
+
+      
+     interface MyInterface {
+
+        //variables  (constants)
+        public static final double PI = 3.14;         
+           
+
+        //methods  (public abstract)
+         public abstract void m1();
+         public abstract void m2();
+
+     } 
+
+    how to interface > using implements 
+
+
+    class MyClass implements MyInterface {
+
+        public void m1() {
+
+        }
+
+        public void m2() {
+
+        }
+
+    }
+
+
+  why interfaces ?
+
+   - to define a contract between different unrelated objects
+
+   - to share constants
+
+
+  when to use interface ?
+
+  - is - A relation go with abstract classes
+
+  - no relation (i.e unrelated entities) go with interfaces
+
+
+  :
+
+   - an inteface can extends another interface
+
+    interface I1 {
+       void m1();
+    }
+
+    interface I2 extends I1 {
+      void m2();
+    }
+
+   - a class can implements any no. of interfaces but extends only one class
+
+    class Test extends MyClass implements I1,I2 {
+
+    }
+
+  
+   Marker interface:
+
+   - an empty interface is called marker interface
+
+   - interface with no methods
+   
+   - used for marking or tagging purpose
+
+     interface I {
+
+
+     }
+
+
+---------------------------------------------
+
+
+    interface I1 {
+
+     void m1();  
+     default void m2() {
+
+     }   
+    
+    }
+
+
+  class A implements I1 {
+
+      public void m1() {
+
+      }
+   }
+   
+  
+  class B implements I1 {
+
+      public void m1() {
+
+      }
+
+     
+   }
+
+  
+  class C implements I1 {
+
+      public void m1() {
+
+      }
+
+   }
+
+
+----------------------------------------------------------------------------
+
+ jdk = devlopments tools + jre
+
+ jre = jvm + predefined packages (pkg contains classes and interfaces)
+
+
+   java.lang 
+
+   java.io
+
+   java.util
+
+  - java package concept is similar to os folder structure
+
+
+ why ?
+
+   - to easily locate the classes
+
+   - to avoid naming collision
+
+   - to restrict class access
+
+
+
+-------------------------------------------------------
+
+
+   access specifiers:
+
+   1. public         : global access
+   2. protected      : within package  + outside package but within subclasses
+   3.      (default) : within package
+   4. private        : within class      
+
+  where to use ?
+
+   - with classes
+
+       * class can have only public or default access level
+
+        public class A {
+
+        }
+
+        class A {
+
+        }
+
+       private class A {  //error
+
+       }
+
+
+   - with class memebers(variables and methods)
+
+       public class A {
+
+          private void m1() {
+
+          }
+
+          void m2() {
+
+          }
+     
+         protected void m3() {
+
+          }
+
+         public void m4() {
+
+         }
+
+      }
+
+
+ -----------------------------------------------
+
+   overriding rules:
+
+     1. method singnature must be same (method name and argument list)
+
+           class A {
+
+              void m1(){
+             
+              }
+           }
+          class B extends A {
+
+             void m1() {
+
+             }
+           }
+
+    2. return type also same .
+
+    3. access can be in incresing level
+
+          private --->  default ---> protected ---> public
+
+   4. exception ????????
+
+
+
+   ------------------------------
+
+   final :
+
+     - final classes : can't extends
+
+           final class A {
+
+           }
+
+            class B extends A { //error
+           
+             }
+
+
+     - final methods  - can't override
+
+        class A {
+           final void m1() {
+
+           }
+         }
+        
+         class B extends A { 
+           
+            void m1() {  //error
+
+             }
+          }
+
+     - final variables - can't change the value
+
+          final int k = 10;
+
+          k = 20; //error
+
+   
+         
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     
