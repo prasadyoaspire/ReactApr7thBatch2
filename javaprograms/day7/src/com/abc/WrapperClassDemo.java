@@ -10,15 +10,13 @@ public class WrapperClassDemo {
 		Integer j = new Integer(i);  //boxing
 		
 		//get primitive value from wrapper object
-		int k = j.intValue(); //unboxing
-		
+		int k = j.intValue(); //unboxing		
 		
 		//java5 introduced - auto boxing and unboxing
 		
 		Integer p1 = 20;   //internally , Integer p1 = new Integer(20);
 		
-		int z = p1;  // int z = p1.intValue();
-		
+		int z = p1;  // int z = p1.intValue();		
 
 	}
 

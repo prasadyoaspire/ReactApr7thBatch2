@@ -9,6 +9,18 @@ public class Customer {
 	private LocalDate dob;
 	private String email;
 	
+	public Customer() {
+		
+	}	
+	
+	public Customer(int customerId, String customerName, LocalDate dob, String email) {
+		super();
+		this.customerId = customerId;
+		this.customerName = customerName;
+		this.dob = dob;
+		this.email = email;
+	}
+	
 	public int getCustomerId() {
 		return customerId;
 	}
@@ -32,6 +44,8 @@ public class Customer {
 	}
 	public void setEmail(String email) {
 		this.email = email;
-	}	
+	}
+	
+	
 	
 }
