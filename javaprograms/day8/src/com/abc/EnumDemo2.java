@@ -19,8 +19,6 @@ public class EnumDemo2 {
 	static void chooseColor(Color color) {
 		
 		System.out.println("Color selected:"+color);
-	}
-	
-	
+	}	
 	
 }
