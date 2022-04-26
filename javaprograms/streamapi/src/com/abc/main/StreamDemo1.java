@@ -23,14 +23,15 @@ public class StreamDemo1 {
 		
 		list.stream().forEach(x->System.out.println(x));
 		
+		
+		
 		//data source
 		Integer[] arys = new Integer[5];
 		arys[0] = 20;
 		arys[1] = 10;
 		arys[2] = 45;
 		arys[3] = 36;
-		arys[4] = 28;
-		
+		arys[4] = 28;		
 
 		//get stream obj from array
 		

@@ -26,8 +26,7 @@ public class EmployeeMain {
 		employees.add(emp1);
 			
 		
-		List<Employee> devlopers = new ArrayList<>();
-		
+		List<Employee> devlopers = new ArrayList<>();	
 		
 		Iterator<Employee> i = employees.iterator();
 		
