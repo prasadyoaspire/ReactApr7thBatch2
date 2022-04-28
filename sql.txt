@@ -1,0 +1,252 @@
+
+   sql commands:
+
+      DDL - create, alter, drop, truncate
+
+      DML  - insert, delete, update
+
+      DQL  - select
+
+  
+  Syntax:
+
+  Create table tableName (columnName datatype, columnname datatype, ......., primary key(columname));
+
+ create table product_tbl(product_id integer,product_name varchar(30),product_price numeric(10,2),primary key(product_id));
+
+	insert into product_tbl values(10,'IphoneX',50000.00);
+
+	insert into product_tbl values(11,'IphoneS',60000.00);
+
+	insert into product_tbl values(12,'SamsungF50',30000.00);
+
+
+    select * from product_tbl;
+
+ 	product_id | product_name | product_price
+	------------+--------------+---------------
+         10 | IphoneX      |      50000.00
+         11 | IphoneS      |      60000.00
+         12 | SamsungF50   |      30000.00
+
+   select product_name,product_price from product_tbl;
+
+ 	product_name | product_price
+	--------------+---------------
+	 IphoneX     |      50000.00
+ 	IphoneS      |      60000.00
+ 	SamsungF50   |      30000.00
+
+   
+   Where condition:
+
+   
+ 	product_id | product_name | product_price
+	------------+--------------+---------------
+         	10 | IphoneX      |      50000.00
+         	11 | IphoneS      |      60000.00
+         	12 | SamsungF50   |      30000.00
+         	13 | dummy        |      30000.00
+         	14 | dummy        |      30000.11
+         	15 | SamsungF50   |      30000.11
+
+  
+    select * from product_tbl where product_id = 12;
+
+ 	product_id | product_name | product_price
+	------------+--------------+---------------
+         	12 | SamsungF50   |      30000.00  
+
+    select * from product_tbl where product_name = 'SamsungF50';
+
+ 	product_id | product_name | product_price
+	------------+--------------+---------------
+         	12 | SamsungF50   |      30000.00
+         	15 | SamsungF50   |      30000.11
+
+    
+    update :
+
+          update product_tbl set product_price = 55000.00 where product_id = 10;
+
+
+     delete :
+
+           delete from product_tbl where product_id = 14;
+
+
+
+   Functions:
+
+     select count(*) from product_tbl;
+
+     select max(product_price) from product_tbl;
+
+     select min(product_price) from product_tbl;
+
+     select count(*) as noOfProducts from product_tbl;
+
+   
+  order by:
+
+     select * from product_tbl order by product_price;
+
+     select * from product_tbl order by product_price desc;
+
+     select * from product_tbl order by product_price asc;
+
+
+   between:
+
+    create table payment_tbl (payment_id integer,amount numeric(5,2),payment_date date, primary key(payment_id));
+
+     insert into payment_tbl values(111,176.00,'2007-02-25');
+     insert into payment_tbl values(112,165.00,'2007-12-20');
+     insert into payment_tbl values(113,165.00,'2009-12-20');
+     insert into payment_tbl values(114,165.00,'2014-12-20');
+
+    select * from payment_tbl where payment_date between '2007-02-25' and '2007-12-20';
+
+
+
+-------------------------------------------------------------------------------------------------------------
+
+
+
+   relation between two tables
+
+        1. one to one
+
+        2. one to many
+
+        3. many to many
+
+
+   one to many :   one dept  many employees
+
+     how to implement one to many relation ? using foreign key constraint
+
+     Department_tbl
+
+      deptId  |  deptName
+     ---------------------
+       10        IT
+       20        Sales
+       30        HR
+
+
+    Employee_tbl
+
+       empId | name | salary | email        |  deptNo (FK)
+      ----------------------------------------------
+        101    aaa    50000   aaa@tmail.com |  10
+        102    bbb    50000   bbb@tmail.com |  10
+        103    ccc    60000   ccc@tmail.com |  30
+        104    ddd    30000   ddd@tmail.com |  20
+        105    eee    50000   eee@tmail.com |  30
+    
+
+
+ Department Table:
+    
+capbatch11=> create table department_tbl (dept_id smallint,dept_name varchar(30), primary key(dept_id));
+
+capbatch11=> insert into department_tbl values(10,'IT');
+
+capbatch11=> insert into department_tbl values(20,'Sales');
+
+capbatch11=> insert into department_tbl values(30,'HR');
+
+  Employee Table:
+
+capbatch11=> create table employee_tbl (emp_id integer, name varchar(50),salary float, email varchar(50),dept_no smallint, constraint emp_pk primary key(emp_id), constraint dept_fk foreign key(dept_no) references department_tbl(dept_id));
+
+ capbatch11=> insert into employee_tbl values(1111,'aaa',50000,'aaa@tmail.com',10);
+
+capbatch11=> insert into employee_tbl values(1112,'ccc',40000,'ccc@tmail.com',30);
+
+capbatch11=> insert into employee_tbl values(1113,'bbb',60000,'bbb@tmail.com',10);
+
+capbatch11=> insert into employee_tbl values(1114,'kkk',20000,'kkk@tmail.com',20);
+
+
+      
+  select * from department_tbl;
+
+  select * from employee_tbl;
+
+
+---------------------------------------------------
+
+   many to many :
+
+    Student_tbl:
+
+         student_id  |   student_name  | age  |   mobile   
+         --------------------------------------------------
+             101         raj             25      963852710  
+             102         sam             24      859635247
+
+    Course_tbl:
+
+          course_id |  course_name |  duration  |  fees
+         -------------------------------------------------
+              11        corejava        30         5000
+              22        sql             15         2000
+              33        jee             30         6000
+
+    
+     course_student_tbl :  composite primary key
+
+             sid   |  cid
+           ---------------
+             101      11
+             101      33
+             102      22
+             102      11
+
+    
+
+  create table student_tbl (stu_id integer, stu_name varchar(50), age smallint, 
+	constraint stu_pk primary key(stu_id));
+
+  create table course_tble (course_id integer, course_name varchar(30), duration smallint,fees float,
+  	constraint cour_pk primary key(course_id));
+
+capbatch11=> insert into student_tbl values(111,'raj',25);
+
+capbatch11=> insert into student_tbl values(222,'sam',24);
+
+capbatch11=> insert into course_tbl values(10,'corejava',30,5000);
+
+  create table course_tbl (course_id integer, course_name varchar(30), duration smallint,fees float,
+  	constraint cour_pk primary key(course_id));
+
+capbatch11=> insert into course_tbl values(10,'corejava',30,5000);
+
+capbatch11=> insert into course_tbl values(20,'sql',20,2000);
+
+capbatch11=> insert into course_tbl values(30,'jee',30,6000);
+
+   create table student_course_tbl (cid integer, sid integer, 
+	constraint stu_cour_pk primary key(cid,sid),
+	constraint cour_fk foreign key(cid) references course_tbl(course_id),
+	constraint stu_fk foreign key(sid) references student_tbl(stu_id));
+
+capbatch11=> insert into student_course_tbl values(10,111);
+
+capbatch11=> insert into student_course_tbl values(30,111);
+
+capbatch11=> insert into student_course_tbl values(10,222);
+
+capbatch11=> insert into student_course_tbl values(20,222);
+      
+
+
+ 
+      
+
+     
+
+
+   
