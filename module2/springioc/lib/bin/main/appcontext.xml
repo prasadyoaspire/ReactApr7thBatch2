@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="myProduct" class="com.springioc.beans.Product">
+		<property name="productId" value="101" />
+		<property name="productName" value="Dell Laptop" />
+		<property name="productPrice" value="58000" />
+	</bean>
+
+	<bean id="circle1" class="com.springioc.beans.Circle">
+		<property name="radius" value="5"/>
+	</bean>
+
+	<!-- <bean id="shape" class="com.springioc.beans.Triangle">
+		<property name="base" value="2"/>
+		<property name="height" value="5"/>
+	</bean>
+
+	<bean id="rectangle1" class="com.springioc.beans.Rectangle">
+		<property name="length" value="5"/>
+	 	<property name="breadth" value="6"/>
+	</bean> -->
+
+	<bean id="service1" class="com.springioc.service.ShapeService" autowire="byType">	
+		<!-- <property name="shape" ref="circle1" /> -->
+	</bean>
+
+	<bean id="stu1" class="com.springioc.beans.Student">
+		<property name="studentId" value="1001" />
+		<property name="studentName" value="RajKumar" />
+		<property name="skills">
+			<set>
+				<value>Java</value>
+				<value>Sql</value>
+				<value>Hibernate</value>
+			</set>
+		</property>
+	</bean>
+
+
+</beans>
