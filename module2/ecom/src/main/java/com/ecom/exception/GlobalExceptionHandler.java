@@ -20,4 +20,10 @@ public class GlobalExceptionHandler {
 		return responseEntity;
 	}	
 	
+	@ExceptionHandler(value = AuthenticationFailedException.class)
+	public ResponseEntity<String> handleAuthenticationFailedException(Exception e) {
+		ResponseEntity<String> responseEntity = new ResponseEntity<>(e.getMessage(),HttpStatus.UNAUTHORIZED);
+		return responseEntity;
+	}	
+	
 }

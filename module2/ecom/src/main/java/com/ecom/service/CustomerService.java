@@ -5,6 +5,8 @@ import java.util.List;
 import com.ecom.entity.Customer;
 
 public interface CustomerService {
+	
+	public Customer doLogin(String username, String password);
 
     public Customer saveCustomer(Customer customer);
 	

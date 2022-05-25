@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ecom.entity.Customer;
+import com.ecom.exception.AuthenticationFailedException;
 import com.ecom.exception.CustomerNotFoundException;
 import com.ecom.repository.CustomerRepository;
 
@@ -54,6 +55,18 @@ public class CustomerServiceImpl implements CustomerService {
 	public void deleteCustomer(long customerId) {
 		
 		
+	}
+
+	@Override
+	public Customer doLogin(String username, String password) {
+		
+		Customer customer = customerRepository.login(username, password);
+		
+		if(customer == null) {
+			throw new AuthenticationFailedException("Username or Password Invalid");
+		}
+		
+		return customer;
 	}
 
 }

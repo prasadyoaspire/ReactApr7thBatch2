@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ecom.entity.Customer;
+import com.ecom.model.LoginRequest;
+import com.ecom.model.LoginResponse;
 import com.ecom.service.CustomerService;
 
 @RestController
@@ -41,5 +43,20 @@ public class CustomerController {
 		
 		List<Customer> customerList = customerService.getAllCustomers();		
 		return customerList;
+	}
+	
+	@PostMapping("/customer/login")
+	public ResponseEntity<LoginResponse> singin(@RequestBody LoginRequest loginReq) {
+		
+		Customer customer1 = customerService.doLogin(loginReq.getUserName(),loginReq.getPassword());
+		
+		LoginResponse loginResp = new LoginResponse();
+		loginResp.setCustomerId(customer1.getCustomerId());
+		loginResp.setCustomerName(customer1.getCustomerName());
+		loginResp.setEmail(customer1.getEmail());
+		loginResp.setMobile(customer1.getMobile());
+		
+		ResponseEntity<LoginResponse> responseEntity = new ResponseEntity<>(loginResp,HttpStatus.OK);		
+		return responseEntity;
 	}
 }
