@@ -12,6 +12,10 @@ public interface ProductService {
 	
 	public List<Product> getAllProducts();
 	
+	public List<Product> getProductsByCategory(String category);
+	
+	public List<Product> getAllProductsWithInPriceRange(double lowerPrice, double upperPrice);
+	
 	public Product updateProduct(Product product);
 	
 	public void deleteProduct(int productId);

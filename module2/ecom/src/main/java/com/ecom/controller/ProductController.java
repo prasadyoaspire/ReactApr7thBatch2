@@ -20,12 +20,13 @@ import com.ecom.service.ProductService;
 public class ProductController {
 
 	@Autowired
-	private ProductService productService;
+	private ProductService productService;	
 
 	@GetMapping("/product/all")
 	public List<Product> fetchAllProducts() {
 
 		List<Product> productList = productService.getAllProducts();
+		
 		return productList;
 	}
 	
@@ -36,6 +37,22 @@ public class ProductController {
 		Product product = productService.getProductById(productId);	
 		responseEntity = new ResponseEntity<>(product,HttpStatus.OK);				
 		return responseEntity;
+	}
+	
+	@GetMapping("/product/bycategory/{categoryName}")
+	public List<Product> fetchProductsByCategory(@PathVariable("categoryName") String category) {
+			
+		List<Product> products = productService.getProductsByCategory(category);
+						
+		return products;
+	}
+	
+	@GetMapping("/product/byprice/{lowerRange}/{upperRange}")
+	public List<Product> fetchProductsByPriceRange(@PathVariable("lowerRange") double lowerRange,@PathVariable("upperRange") double upperRange) {
+			
+		List<Product> products = productService.getAllProductsWithInPriceRange(lowerRange, upperRange);
+						
+		return products;
 	}
 	
 	@PostMapping("/product/save")

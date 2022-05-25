@@ -15,12 +15,15 @@ public class Product {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "product_id")
 	private int productId;
-	
+
 	@Column(name = "product_name")
 	private String productName;
 	
 	@Column(name = "product_price")
 	private double productPrice;
+	
+	@Column(name="category")
+	private String category;	
 
 	public int getProductId() {
 		return productId;
@@ -44,6 +47,15 @@ public class Product {
 
 	public void setProductPrice(double productPrice) {
 		this.productPrice = productPrice;
+	}	
+	
+	public String getCategory() {
+		return category;
 	}
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
+
 	
 }
