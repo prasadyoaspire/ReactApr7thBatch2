@@ -1,10 +1,15 @@
 package com.ecom.entity;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -30,6 +35,9 @@ public class Customer {
 	
 	@Column(name="password")
 	private String password;
+	
+	@OneToMany(mappedBy = "customer",cascade = CascadeType.ALL)
+	private Set<Order> orders = new HashSet<>();
 
 	public long getCustomerId() {
 		return customerId;
@@ -78,5 +86,12 @@ public class Customer {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
+
+	public Set<Order> getOrders() {
+		return orders;
+	}
+
+	public void setOrders(Set<Order> orders) {
+		this.orders = orders;
+	}		
 }

@@ -8,7 +8,7 @@ public interface ProductService {
 
 	public Product saveProduct(Product product);
 	
-	public Product getProductById(int productId);
+	public Product getProductById(long productId);
 	
 	public List<Product> getAllProducts();
 	
@@ -18,6 +18,6 @@ public interface ProductService {
 	
 	public Product updateProduct(Product product);
 	
-	public void deleteProduct(int productId);
+	public void deleteProduct(long productId);
 		
 }

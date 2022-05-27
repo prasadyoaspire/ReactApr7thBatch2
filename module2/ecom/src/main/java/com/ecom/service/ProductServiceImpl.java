@@ -24,7 +24,7 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public Product getProductById(int productId) throws ProductNotFoundException {
+	public Product getProductById(long productId) throws ProductNotFoundException {
 		
 		Optional<Product> optionalProduct = productRepository.findById(productId);	
 		
@@ -59,7 +59,7 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public void deleteProduct(int productId) {
+	public void deleteProduct(long productId) {
 	
 		Optional<Product> optionalProduct = productRepository.findById(productId);
 		if(optionalProduct.isEmpty()) {
