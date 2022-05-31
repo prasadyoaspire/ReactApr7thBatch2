@@ -1,8 +1,13 @@
 package com.ecom.model;
 
+import javax.validation.constraints.NotBlank;
+
 public class LoginRequest {
 
-	private String userName;
+	@NotBlank(message="Username is required")
+	private String userName;	
+	
+	@NotBlank(message="Password is required")
 	private String password;
 	
 	public String getUserName() {

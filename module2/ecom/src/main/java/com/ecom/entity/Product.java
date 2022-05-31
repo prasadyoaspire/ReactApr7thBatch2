@@ -6,6 +6,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
 
 @Entity
 @Table(name="product_tbl")
@@ -16,11 +18,17 @@ public class Product {
 	@Column(name = "product_id")
 	private long productId;
 
+	@NotNull(message = "ProductName is required")
+	
 	@Column(name = "product_name")
 	private String productName;
 	
+	@Positive(message="Product Price must be a positive number")	
+	
 	@Column(name = "product_price")
 	private double productPrice;
+	
+	@NotNull(message = "ProductCategory is required")	
 	
 	@Column(name="category")
 	private String category;	
