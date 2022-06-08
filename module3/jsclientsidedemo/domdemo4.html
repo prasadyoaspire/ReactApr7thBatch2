@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,27 +8,46 @@
     <title>Document</title>
     <script>
         function myFun() {
-           var uname = document.loginForm.username.value;
-           var pwd = document.loginForm.pwd.value;
+            var uname = document.loginForm.username.value;
+            var pwd = document.loginForm.pwd.value;
 
-           if(pwd=="admin123") {
-               alert("Welcome "+uname);
-           }
-           else {
-               alert("login failed");
-           }
-           
+            var isValid = true;
+
+            if (uname == "") {
+                isValid = false;
+                alert("Please enter username");
+                return false;
+            }
+            else if (pwd == "") {
+                isValid = false;
+                alert("Please enter password");
+                return false;
+            }
+
+
+            if (isValid) {
+                if (pwd == "admin123") {
+                    alert("Welcome " + uname);
+                }
+                else {
+                    alert("login failed");
+                }
+                return true;
+            }
+
         }
     </script>
 </head>
+
 <body>
-    
-    <form name="loginForm" onsubmit="myFun()">
+
+    <form name="loginForm" onsubmit="return myFun()">
 
         Enter User Name : <input type="text" name="username" /><br>
-        Enter password : <input type="password" name="pwd"/>    <br>   
+        Enter password : <input type="password" name="pwd" /> <br>
         <input type="submit" />
 
     </form>
 </body>
+
 </html>
