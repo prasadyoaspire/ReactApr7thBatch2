@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Demo1</title>
+
+    <script>
+        function sumArray(a) {
+            var sum = 0;
+            for (var i = 0; i < a.length; i++) {
+                sum = sum + a[i];
+            }
+            return sum;
+        }
+
+    </script>
+
+</head>
+
+<body>
+
+    <script>
+        var ary = [10, 20, 30, 40, 50, 60];
+        for (var i = 0; i < ary.length; i++) {
+            document.write(ary[i] + " ");
+        }
+        document.write("<br>Sum of All the elements: "+sumArray(ary));
+
+    </script>
+
+</body>
+
+</html>
