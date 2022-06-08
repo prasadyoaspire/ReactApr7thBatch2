@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        function myFun() {
+            
+            var x = document.getElementsByClassName("mypara");
+
+            x[0].innerHTML = "This is new para1"
+
+            x[1].style.color = 'blue';
+        }
+
+    </script>
+</head>
+<body>
+    
+    <p class="mypara">This is old para1</p>
+
+    <p class="mypara">This is old para2</p>
+
+    <button onclick="myFun()">Click</button>
+
+
+
+</body>
+</html>

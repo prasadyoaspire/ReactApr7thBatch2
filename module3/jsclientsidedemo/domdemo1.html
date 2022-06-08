@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>domdemo1</title>
+
+    <script>
+
+        function test() {
+          document.getElementById("para1").innerHTML = "This is new paragraph."
+        }
+
+        function changeColor() {
+             document.getElementById("para2").style.color = 'red';
+        }
+
+    </script>
+
+</head>
+<body>
+
+    <button onclick="test()">Click here to change text of paragrpah</button>
+
+    <!-- <button onclick="changeColor()">Click here to change the color of para2</button> -->
+
+    <p id="para1">This old paragraph</p>
+
+    <p id="para2" onclick="changeColor()">This is para2</p>
+    
+</body>
+</html>

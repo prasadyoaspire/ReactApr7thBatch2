@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        function sum() {
+            var x = parseInt(document.getElementById("a").value);
+            var y = parseInt(document.getElementById("b").value);
+            var z = x + y;
+
+            console.log(z);
+
+            document.getElementById("result").innerHTML = "<h2>Sum: " + z + " </h2>";
+
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <div>
+        <label>Enter A value</label>
+        <input type="text" id="a" name="a" />
+    </div>
+    <div>
+        <label>Enter B value</label>
+        <input type="text" id="b" name="b" />
+    </div>
+    <div>
+        <button onclick="sum()">Sum</button>
+    </div>
+
+    <p id="result"></p>
+
+
+</body>
+
+</html>
