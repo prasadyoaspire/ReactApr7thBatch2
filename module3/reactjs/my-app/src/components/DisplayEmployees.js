@@ -4,7 +4,6 @@ function DisplayEmployees(props) {
 
     return (
         <div>
-
             <table border="1">
                 <tr>
                     <th>EmpNo</th>
@@ -21,7 +20,6 @@ function DisplayEmployees(props) {
                     )
                 }
             </table>
-
         </div>
     )
 }

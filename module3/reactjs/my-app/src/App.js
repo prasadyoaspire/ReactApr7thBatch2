@@ -5,6 +5,7 @@ import Home from './components/Home';
 
 import Welcome from './components/Welcome';
 import FetchEmployees from './components/FetchEmployees';
+import Counter from './components/Counter';
 
 function App() {
 
@@ -13,11 +14,12 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
+      {/* <Header /> */}
       {/* <Home /> */}
-      <FetchEmployees/>
-      <Welcome fname={firstName} lname={lastName} />
-      <Footer />
+      {/* <FetchEmployees/> */}
+      {/* <Welcome fname={firstName} lname={lastName} /> */}
+      {/* <Footer /> */}
+      <Counter/>
     </div>
   );
 }
