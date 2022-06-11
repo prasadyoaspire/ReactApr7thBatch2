@@ -14,20 +14,37 @@ class FetchAllProducts extends React.Component {
         }));
     }
     render() {
-        return (
+
+
+          return (
             <div>
                 <h2>All Products</h2>
                 {
-                    this.state.products.map(p =>
-                        <div>
-                            {p.productId} {p.productName} {p.productPrice} {p.category}
-                        </div>
-                    )
+                    this.state.products.length > 0 ?
+
+                        <table border="1">
+                            <tr>
+                                <th>ProductId</th>
+                                <th>Name</th>
+                                <th>Price</th>
+                                <th>Category</th>
+                            </tr>
+                            {
+                                this.state.products.map((p, index) =>
+                                    <tr key={index}>
+                                        <td>{p.productId}</td>
+                                        <td>{p.productName}</td>
+                                        <td>{p.productPrice}</td>
+                                        <td>{p.category}</td>
+                                    </tr>
+                                )
+                            }
+                        </table>
+                        : <h3>No Products Available</h3>
                 }
             </div>
         )
     }
-
 }
 
 export default FetchAllProducts;

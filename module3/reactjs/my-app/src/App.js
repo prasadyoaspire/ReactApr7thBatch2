@@ -8,6 +8,9 @@ import FetchEmployees from './components/FetchEmployees';
 import Counter from './components/Counter';
 import DemoClass from './components/DemoClass';
 import FetchAllProducts from './components/FetchAllProducts';
+import LoggedInUser from './components/LoggedInUser';
+import Register from './components/Register';
+import SaveProduct from './components/SaveProduct';
 
 function App() {
 
@@ -24,6 +27,9 @@ function App() {
       {/* <Counter/> */}
       {/* <DemoClass/> */} 
       <FetchAllProducts/>
+      {/* <LoggedInUser isLoggedIn= {false}/> */}
+      {/* <Register/> */}
+      <SaveProduct/>
     </div>
   );
 }
