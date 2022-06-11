@@ -7,8 +7,8 @@ class Counter extends React.Component {
         this.state = {
             counter: 0
         }
-        this.increment = this.increment.bind(this);
-        this.decrement = this.decrement.bind(this);
+       this.increment = this.increment.bind(this);
+       this.decrement = this.decrement.bind(this);
     }
 
     increment() {
@@ -35,3 +35,5 @@ class Counter extends React.Component {
 }
 
 export default Counter;
+
+

@@ -6,6 +6,8 @@ import Home from './components/Home';
 import Welcome from './components/Welcome';
 import FetchEmployees from './components/FetchEmployees';
 import Counter from './components/Counter';
+import DemoClass from './components/DemoClass';
+import FetchAllProducts from './components/FetchAllProducts';
 
 function App() {
 
@@ -19,7 +21,9 @@ function App() {
       {/* <FetchEmployees/> */}
       {/* <Welcome fname={firstName} lname={lastName} /> */}
       {/* <Footer /> */}
-      <Counter/>
+      {/* <Counter/> */}
+      {/* <DemoClass/> */} 
+      <FetchAllProducts/>
     </div>
   );
 }
