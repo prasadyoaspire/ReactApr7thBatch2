@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Axios from 'axios';
+import { Link } from 'react-router-dom';
 
 function CreateProduct() {
 
@@ -38,6 +39,10 @@ function CreateProduct() {
                 </label>
             </div>
             <button onClick={handleSubmit}>Submit</button>
+
+            <div>
+                <Link to="/">Back To Home</Link>
+            </div>
         </div>
         
     )

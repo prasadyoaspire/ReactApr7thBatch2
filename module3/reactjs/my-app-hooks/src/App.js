@@ -13,6 +13,7 @@ import {
 
 import CreateProduct from './components/CreateProduct';
 import Home from './components/Home';
+import FetchProduct from './components/FetchProduct';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/countertwo" element={<CounterTwo />} />
           <Route path="/product/all" element={<FetchAllProductsTwo />} />
           <Route path="/product/save" element={<CreateProduct/>} />
+          <Route path="/product/get/:id" element={<FetchProduct/>} />
         </Routes>
       </Router>
     </div>
