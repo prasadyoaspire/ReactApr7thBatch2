@@ -14,6 +14,7 @@ import {
 import CreateProduct from './components/CreateProduct';
 import Home from './components/Home';
 import FetchProduct from './components/FetchProduct';
+import DeleteProduct from './components/DeleteProduct';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path="/product/all" element={<FetchAllProductsTwo />} />
           <Route path="/product/save" element={<CreateProduct/>} />
           <Route path="/product/get/:id" element={<FetchProduct/>} />
+          <Route path="/product/delete/:id" element={<DeleteProduct/>}/>
         </Routes>
       </Router>
     </div>

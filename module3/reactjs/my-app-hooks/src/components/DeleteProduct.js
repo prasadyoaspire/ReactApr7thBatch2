@@ -1,23 +1,27 @@
-import React, { useEffect, useState } from 'react';
+import React,{useState,useEffect} from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 
-function FetchProduct() {
+function DeleteProduct() {
 
     const [product, setProduct] = useState(null);
 
     const {id} = useParams();
-
+   
     const fetchProductById = () => {
        axios.get("http://localhost:8081/product/find/"+id).then(resp=>setProduct(resp.data));
     }
 
     useEffect(fetchProductById,[id]);
 
+    const deleteProduct = () => {
+        axios.delete("http://localhost:8081/product/delete/"+id).then(resp=>alert("Product deleted."));
+                
+    }
+
     return(
         <div>
-            <h2>Product Details</h2>
+             <h2>Product Details</h2>
             {
                 product !== null &&
                 <div> 
@@ -27,11 +31,10 @@ function FetchProduct() {
                     <p>Category : {product.category}</p>
                 </div>
             }
-            <div>
-                <Link to="/product/all">Back</Link>
-            </div>
+
+            <button onClick={deleteProduct}>Delete</button>
         </div>
     )
 }
 
-export default FetchProduct;
+export default DeleteProduct;

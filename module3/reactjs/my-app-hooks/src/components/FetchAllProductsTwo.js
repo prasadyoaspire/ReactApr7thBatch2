@@ -38,7 +38,7 @@ function FetchAllProductsTwo() {
                                   
                                     <td><Link to={`/product/get/${p.productId}`}>View</Link></td>
                                     <td><Link to="">Edit</Link></td>
-                                    <td><Link to="">Delete</Link></td>
+                                    <td><Link to={`/product/delete/${p.productId}`}>Delete</Link></td>
                                 </tr>
                             )
                         }
@@ -49,6 +49,8 @@ function FetchAllProductsTwo() {
                 <Link to="/">Back To Home</Link>
             </div>
         </div>
+
+      
     )
 }
 
