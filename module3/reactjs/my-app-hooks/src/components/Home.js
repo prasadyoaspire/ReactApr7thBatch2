@@ -1,17 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import FetchAllProductsTwo from './FetchAllProductsTwo';
 
 function Home() {
 
-    return(
+    return (
         <div>
             <h2>Welcome to MyStore</h2>
 
-            <Link to="/countertwo">display counter</Link> <br></br>
+            <FetchAllProductsTwo />
 
-            <Link to="/product/all">Display All Products</Link> <br></br>
-
-            <Link to="/product/save">Add Product</Link>
+            {/* <Link to="/product/save">Add Product</Link> */}
 
         </div>
     )

@@ -15,8 +15,7 @@ function DeleteProduct() {
     useEffect(fetchProductById,[id]);
 
     const deleteProduct = () => {
-        axios.delete("http://localhost:8081/product/delete/"+id).then(resp=>alert("Product deleted."));
-                
+        axios.delete("http://localhost:8081/product/delete/"+id).then(resp=>alert("Product deleted."));                
     }
 
     return(

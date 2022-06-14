@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Axios from 'axios';
 import { Link } from 'react-router-dom';
+import img1 from '../images/samsungm12.jpg';
 
 
 function FetchAllProductsTwo() {
@@ -16,41 +17,24 @@ function FetchAllProductsTwo() {
 
     return (
         <div>
-            <h2>All Products (using Hooks)</h2>
-            {
-                products.length > 0 ?
-
-                    <table border="1">
-                        <tr>
-                           
-                            <th>Name</th>
-                            <th>Price</th>
-                            <th>View</th>
-                            <th>Edit</th>
-                            <th>delete</th>
-                        </tr>
-                        {
-                            products.map((p, index) =>
-                                <tr key={index}>
-                                   
-                                    <td>{p.productName}</td>
-                                    <td>{p.productPrice}</td>
-                                  
-                                    <td><Link to={`/product/get/${p.productId}`}>View</Link></td>
-                                    <td><Link to="">Edit</Link></td>
-                                    <td><Link to={`/product/delete/${p.productId}`}>Delete</Link></td>
-                                </tr>
-                            )
-                        }
-                    </table>
-                    : <h3>No Products Available</h3>
-            }
-            <div>
-                <Link to="/">Back To Home</Link>
+            <div class="row">
+                {
+                    products.map((p, index) =>
+                        <div key={index} className="col-sm-3">
+                            <Link to={`/product/get/${p.productId}`}>
+                                <div className="card" style={{ width: "200px", height: "400px" }}>
+                                    <img className="card-img-top" src={img1} alt="Card image" />
+                                    <div className="card-body">
+                                        <h4 className="card-title">{p.productName}</h4>
+                                        <p className="card-text">{p.productPrice}</p>
+                                    </div>
+                                </div>
+                            </Link>
+                        </div>
+                    )
+                }
             </div>
         </div>
-
-      
     )
 }
 

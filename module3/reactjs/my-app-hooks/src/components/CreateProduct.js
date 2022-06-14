@@ -6,7 +6,7 @@ function CreateProduct() {
 
     const [pName, setPName] = useState("");
     const [pPrice, setPPrice] = useState("");
-    const [pCategory, setPCategory] = useState("");     
+    const [pCategory, setPCategory] = useState("");
 
     const handleSubmit = () => {
         const payload = {
@@ -19,32 +19,31 @@ function CreateProduct() {
     }
 
     return (
-        <div>
-            <div>
-                <label>
-                    ProductName:
-                    <input type="text" name="pName" value={pName} onChange={e=> setPName(e.target.value)} />
-                </label>
-            </div>
-            <div>
-                <label>
-                    ProductPrice:
-                    <input type="text" name="pPrice" value={pPrice} onChange={e=>setPPrice(e.target.value)} />
-                </label>
-            </div>
-            <div>
-                <label>
-                    Category:
-                    <input type="text" name="pCategory" value={pCategory} onChange={e=>setPCategory(e.target.value)} />
-                </label>
-            </div>
-            <button onClick={handleSubmit}>Submit</button>
+        <div className="container">
+            <h2 style={{ backgroundColor: "lightblue" }}>Product Form</h2>
+            <div className="form-group">
+                <label htmlFor='pName'>ProductName</label>
+                <input type="text" className="form-control" name="pName" value={pName} onChange={e => setPName(e.target.value)} />
 
+            </div>
+            <div className="form-group">
+                <label htmlFor='pPrice'>ProductPrice </label>
+                <input type="text" className="form-control" name="pPrice" value={pPrice} onChange={e => setPPrice(e.target.value)} />
+
+            </div>
+            <div className="form-group">
+                <label htmlFor='pCategory'>Category</label>
+                <input type="text" className="form-control" name="pCategory" value={pCategory} onChange={e => setPCategory(e.target.value)} />
+
+            </div>
             <div>
-                <Link to="/">Back To Home</Link>
+                <button onClick={handleSubmit} className="btn btn-primary">Submit</button>
+            </div>
+            <div style={{ float: "right" }}>
+                <Link to="/" className="btn btn-secondary">BackToHome</Link>
             </div>
         </div>
-        
+
     )
 }
 
