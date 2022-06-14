@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Axios from 'axios';
 import { Link } from 'react-router-dom';
 import img1 from '../images/samsungm12.jpg';
+import SearchProduct from './SearchProduct';
 
 
 function FetchAllProductsTwo() {
@@ -17,6 +18,7 @@ function FetchAllProductsTwo() {
 
     return (
         <div>
+            {/* <SearchProduct/> */}
             <div class="row">
                 {
                     products.map((p, index) =>

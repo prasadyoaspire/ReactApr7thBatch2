@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import Axios from 'axios';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function CreateProduct() {
 
     const [pName, setPName] = useState("");
     const [pPrice, setPPrice] = useState("");
     const [pCategory, setPCategory] = useState("");
+
+    const navigate = useNavigate();
 
     const handleSubmit = () => {
         const payload = {
@@ -40,7 +43,8 @@ function CreateProduct() {
                 <button onClick={handleSubmit} className="btn btn-primary">Submit</button>
             </div>
             <div style={{ float: "right" }}>
-                <Link to="/" className="btn btn-secondary">BackToHome</Link>
+                {/* <Link to="/" className="btn btn-secondary">BackToHome</Link> */}
+                <button onClick={()=>navigate(-1)} className="btn btn-secondary">Go Back Home</button>
             </div>
         </div>
 
