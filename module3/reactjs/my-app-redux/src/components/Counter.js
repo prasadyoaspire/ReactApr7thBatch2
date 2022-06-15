@@ -1,31 +1,24 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { increment,decrement } from '../store/actions/CounterActions';
 
-import {useDispatch,useSelector} from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 function Counter() {
 
-    const counter1 = useSelector(state=>state.counterReducer.counter);
-
+    const counter1 = useSelector(state => state.counterReducer.counter);
     const dispatch = useDispatch()
 
-    const increment = () => {
-       dispatch({
-            type: 'counter/increment'
-       })
+    const incrementByOne = () => {
+        dispatch(increment())
     }
-
-    const decrement = () => {
-        dispatch({
-            type: 'counter/decrement'
-       })
+    const decrementByOne = () => {
+        dispatch(decrement())
     }
-
-    return(
+    return (
         <div>
             <h2>Counter: {counter1}</h2>
-            <button onClick={increment}>+</button> <button onClick={decrement}>-</button>
+            <button onClick={incrementByOne}>+</button> <button onClick={decrementByOne}>-</button>
         </div>
     )
 }
-
 export default Counter;

@@ -7,6 +7,7 @@ import {
 
 } from 'react-router-dom';
 import Counter from './components/Counter';
+import FetchAllProducts from './components/FetchAllProducts';
 
 function App() {
   return (
@@ -14,6 +15,8 @@ function App() {
       <Router>
         <Routes>
           <Route path="/counter" element={<Counter />} />
+          <Route path="/product/all" element={<FetchAllProducts/>} />
+
         </Routes>
       </Router>
     </div>

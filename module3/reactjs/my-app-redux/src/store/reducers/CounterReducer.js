@@ -2,7 +2,7 @@ const initialState = {
     counter : 0,   
 }
 
-function counterReducer(state=initialState, action) {
+export default function counterReducer(state=initialState, action) {
 
     if(action.type === 'counter/increment') {
 
