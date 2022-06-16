@@ -10,18 +10,18 @@ import { getProductDetails } from '../store/actions/ProductActions';
 function FetchProduct() {
 
     // const [product, setProduct] = useState(null);
-    const product = useSelector(state=>state.productReducer.product)
+    const product = useSelector(state => state.productReducer.product)
 
     const { id } = useParams();
 
     const dispatch = useDispatch();
 
     const fetchProductById = () => {
-       dispatch(getProductDetails(id));
+        dispatch(getProductDetails(id));
     }
 
     useEffect(fetchProductById, [id]);
-
+    
     return (
         <div className='contrainer-fluid'>
             {
@@ -36,10 +36,12 @@ function FetchProduct() {
                         <p>Name : {product.productName}</p>
                         <p>Price : {product.productPrice}</p>
                         <p>Category : {product.category}</p>
+                        <Link to={`/product/edit/${product.productId}`} className="btn btn-secondary">Edit</Link> &nbsp;&nbsp;
+                        <Link to={`/product/delete/${product.productId}`} className="btn btn-secondary">Delete</Link><br></br><br></br>
                     </div>
-
                 </div>
             }
+
             <div>
                 <Link to="/product/all" className="btn btn-secondary">Back</Link>
             </div>
