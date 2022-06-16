@@ -4,14 +4,14 @@ const initialState = {
 
 export default function counterReducer(state=initialState, action) {
 
-    if(action.type === 'counter/increment') {
+    if(action.type === 'INCREMENT') {
 
         return {
             ...state,
             counter : state.counter+1
         }
     }
-    else if(action.type === 'counter/decrement') {
+    else if(action.type === 'DECREMENT') {
         return {
             ...state,
             counter : state.counter-1
@@ -21,3 +21,4 @@ export default function counterReducer(state=initialState, action) {
         return state;
     }
 }
+

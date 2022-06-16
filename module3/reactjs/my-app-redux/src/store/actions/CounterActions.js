@@ -1,7 +1,7 @@
 export function increment() {
     return (
         {
-            type: 'counter/increment'
+            type: 'INCREMENT'
         }
     )
 }
@@ -9,7 +9,7 @@ export function increment() {
 export function decrement() {
     return (
         {
-            type: 'counter/decrement'
+            type: 'DECREMENT'
         }
     )
 }
