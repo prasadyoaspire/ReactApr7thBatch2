@@ -21,6 +21,10 @@ function FetchProduct() {
     }
 
     useEffect(fetchProductById, [id]);
+
+    const deleteProduct = () => {
+
+    }
     
     return (
         <div className='contrainer-fluid'>
@@ -37,7 +41,7 @@ function FetchProduct() {
                         <p>Price : {product.productPrice}</p>
                         <p>Category : {product.category}</p>
                         <Link to={`/product/edit/${product.productId}`} className="btn btn-secondary">Edit</Link> &nbsp;&nbsp;
-                        <Link to={`/product/delete/${product.productId}`} className="btn btn-secondary">Delete</Link><br></br><br></br>
+                        <button onClick={deleteProduct} className="btn btn-secondary">Delete</button><br></br><br></br>
                     </div>
                 </div>
             }

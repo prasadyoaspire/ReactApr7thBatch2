@@ -9,6 +9,8 @@ function FetchAllProducts() {
     const products = useSelector(state=>state.productReducer.products)
     const dispatch = useDispatch();
 
+    const myUser = localStorage.getItem("myUser");
+
     const myFunction = () => {
         dispatch(getAllProducts()) 
     };
@@ -19,7 +21,9 @@ function FetchAllProducts() {
 
     return (
         <div>
-            {/* <SearchProduct/> */}
+            { 
+                 myUser !== null &&  <h3>Welcome {JSON.parse(myUser).customerName}</h3>
+            }
             <div class="row">
                 {
                     products.map((p, index) =>
