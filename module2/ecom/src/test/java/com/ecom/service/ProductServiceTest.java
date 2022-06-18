@@ -20,7 +20,7 @@ import com.ecom.exception.ProductNotFoundException;
 import com.ecom.repository.ProductRepository;
 
 @SpringBootTest
-public class ProductServiceTest {
+class ProductServiceTest {
 	
 	@InjectMocks
 	private ProductService productService = new ProductServiceImpl();
@@ -29,7 +29,7 @@ public class ProductServiceTest {
 	private ProductRepository productRepository;
 	
 	@Test
-	public void testGetProductById() {
+	void testGetProductById() {
 		
 		Product product = new Product();
 		product.setProductId(100);
@@ -47,7 +47,7 @@ public class ProductServiceTest {
 	}
 	
 	@Test
-	public void testGetProductByIdWithException() {
+	void testGetProductByIdWithException() {
 		
 		when(productRepository.findById(100L)).thenThrow(ProductNotFoundException.class);
 		
@@ -55,7 +55,7 @@ public class ProductServiceTest {
 	}
 	
 	@Test
-	public void testGetAllProducts() {
+	void testGetAllProducts() {
 		
 		Product product = new Product();
 		product.setProductId(100);
@@ -88,7 +88,7 @@ public class ProductServiceTest {
 	}
 	
 	@Test
-	public void testSaveProduct() {
+	void testSaveProduct() {
 		
 		Product product = new Product();
 		product.setProductId(100);
@@ -107,7 +107,7 @@ public class ProductServiceTest {
 	}
 	
 	@Test
-	public void testDeleteProduct() {
+	void testDeleteProduct() {
 		
 		Product product = new Product();
 		product.setProductId(100);

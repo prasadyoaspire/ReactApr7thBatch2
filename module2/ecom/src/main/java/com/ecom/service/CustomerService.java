@@ -6,9 +6,7 @@ import com.ecom.entity.Customer;
 
 public interface CustomerService {
 	
-	public Customer doLogin(String username, String password);
-
-    public Customer saveCustomer(Customer customer);
+	public Customer saveCustomer(Customer customer);
 	
 	public Customer getCustomerById(long customerId);
 	

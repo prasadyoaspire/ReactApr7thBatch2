@@ -27,38 +27,23 @@ public class CustomerController {
 	@PostMapping("/customer/save")
 	public ResponseEntity<Customer> addCustomer(@RequestBody Customer customer) {
 		
-		Customer newCustomer = customerService.saveCustomer(customer);		
-		ResponseEntity<Customer> responseEntity = new ResponseEntity<>(newCustomer,HttpStatus.CREATED);		
-		return responseEntity;
+		Customer newCustomer = customerService.saveCustomer(customer);	
+		
+		return  new ResponseEntity<>(newCustomer,HttpStatus.CREATED);
 	}
 	
 	@GetMapping("/customer/{customerId}")
 	public ResponseEntity<Customer> fetchCustomerDetails(@PathVariable("customerId") long customerId) {
 		
 		Customer customer = customerService.getCustomerById(customerId);
-		ResponseEntity<Customer> responseEntity = new ResponseEntity<>(customer,HttpStatus.OK);		
-		return responseEntity;
+		
+		return new ResponseEntity<>(customer,HttpStatus.OK);
 	}
 	
 	@GetMapping("/customer/all")
-	public List<Customer> fetchAllCustomers() {
-		
-		List<Customer> customerList = customerService.getAllCustomers();		
-		return customerList;
-	}
+	public List<Customer> fetchAllCustomers() {		
+			
+		return customerService.getAllCustomers();
+	}	
 	
-	@PostMapping("/customer/login")
-	public ResponseEntity<LoginResponse> singin(@Valid @RequestBody LoginRequest loginReq) {
-		
-		Customer customer1 = customerService.doLogin(loginReq.getUserName(),loginReq.getPassword());
-		
-		LoginResponse loginResp = new LoginResponse();
-		loginResp.setCustomerId(customer1.getCustomerId());
-		loginResp.setCustomerName(customer1.getCustomerName());
-		loginResp.setEmail(customer1.getEmail());
-		loginResp.setMobile(customer1.getMobile());
-		
-		ResponseEntity<LoginResponse> responseEntity = new ResponseEntity<>(loginResp,HttpStatus.OK);		
-		return responseEntity;
-	}
 }

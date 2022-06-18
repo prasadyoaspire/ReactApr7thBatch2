@@ -6,6 +6,8 @@ public class LoginResponse {
 	private String customerName;
 	private String email;
 	private String mobile;
+	private String role;
+	
 	public long getCustomerId() {
 		return customerId;
 	}
@@ -30,6 +32,11 @@ public class LoginResponse {
 	public void setMobile(String mobile) {
 		this.mobile = mobile;
 	}
-	
+	public String getRole() {
+		return role;
+	}
+	public void setRole(String role) {
+		this.role = role;
+	}
 	
 }
