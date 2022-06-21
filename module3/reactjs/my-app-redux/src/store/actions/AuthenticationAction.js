@@ -10,7 +10,9 @@ export function doCustomerLogin(payload) {
             }
         )  
         .catch(error=> {
-            console.log(error);
+            console.log(error.response.data);  
+            alert(error.response.data);
+
         })     
     }
 }
@@ -20,5 +22,12 @@ export function doLoginSuccess(data) {
     return {
         type : "LOGIN_SUCCESS",
         payload: data
+    }
+}
+
+export function doLogout() {
+
+    return {
+        type : "LOGOUT_SUCCESS"    
     }
 }

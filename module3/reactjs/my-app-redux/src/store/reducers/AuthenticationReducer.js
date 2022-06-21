@@ -1,14 +1,21 @@
 const initialState = {
-    loggedInUser : null
+    loggedInUser : null,
+    isLoggedIn : false
 }
 
 export default function authenticationReducer(state = initialState, action) {
 
-    if (action.type === 'LOGIN_SUCCESS') {
-        console.log(action.payload);
+    if (action.type === 'LOGIN_SUCCESS') {        
         return ({
             ...state,
-            loggedInUser: action.payload
+            loggedInUser: action.payload,
+            isLoggedIn : true
+        })
+    }
+    if (action.type === 'LOGOUT_SUCCESS') {       
+        return ({
+            ...state,
+            isLoggedIn : false
         })
     }
     
